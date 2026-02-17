@@ -1681,6 +1681,7 @@ return array(
     'Rector\\DowngradePhp81\\Rector\\StmtsAwareInterface\\DowngradeSetAccessibleReflectionPropertyRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp81/Rector/StmtsAwareInterface/DowngradeSetAccessibleReflectionPropertyRector.php',
     'Rector\\DowngradePhp82\\NodeManipulator\\DowngradeReadonlyClassManipulator' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp82/NodeManipulator/DowngradeReadonlyClassManipulator.php',
     'Rector\\DowngradePhp82\\Rector\\Class_\\DowngradeReadonlyClassRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp82/Rector/Class_/DowngradeReadonlyClassRector.php',
+    'Rector\\DowngradePhp82\\Rector\\Class_\\DowngradeUnionIntersectionRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp82/Rector/Class_/DowngradeUnionIntersectionRector.php',
     'Rector\\DowngradePhp82\\Rector\\FuncCall\\DowngradeIteratorCountToArrayRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp82/Rector/FuncCall/DowngradeIteratorCountToArrayRector.php',
     'Rector\\DowngradePhp82\\Rector\\FunctionLike\\DowngradeStandaloneNullTrueFalseReturnTypeRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp82/Rector/FunctionLike/DowngradeStandaloneNullTrueFalseReturnTypeRector.php',
     'Rector\\DowngradePhp83\\Rector\\ClassConstFetch\\DowngradeDynamicClassConstFetchRector' => $vendorDir . '/rector/rector-downgrade-php/rules/DowngradePhp83/Rector/ClassConstFetch/DowngradeDynamicClassConstFetchRector.php',
