@@ -396,7 +396,6 @@ class Assert
      */
     public static function isInstanceOf($value, $class, string $message = ''): object
     {
-        static::object($value);
         static::string($class, 'Expected class as a string. Got: %s');
         if (!$value instanceof $class) {
             static::reportInvalidArgument(\sprintf($message ?: 'Expected an instance of %2$s. Got: %s', static::typeToString($value), $class));
@@ -417,9 +416,8 @@ class Assert
      */
     public static function notInstanceOf($value, $class, string $message = ''): object
     {
-        static::object($value);
         static::string($class, 'Expected class as a string. Got: %s');
-        if ($value instanceof $class) {
+        if (!\is_object($value) || $value instanceof $class) {
             static::reportInvalidArgument(\sprintf($message ?: 'Expected an instance other than %2$s. Got: %s', static::typeToString($value), $class));
         }
         return $value;
@@ -438,7 +436,6 @@ class Assert
      */
     public static function isInstanceOfAny($value, $classes, string $message = ''): object
     {
-        static::object($value);
         static::isIterable($classes);
         foreach ($classes as $class) {
             static::string($class, 'Expected class as a string. Got: %s');
@@ -485,7 +482,7 @@ class Assert
      */
     public static function isNotA($value, $class, string $message = '')
     {
-        static::objectish($value);
+        static::objectish($value, $message);
         static::string($class, 'Expected class as a string. Got: %s');
         if (\is_a($value, $class, \is_string($value))) {
             static::reportInvalidArgument(\sprintf($message ?: 'Expected an instance of this class or to this class among its parents other than "%2$s". Got: %s', static::valueToString($value), $class));
@@ -504,7 +501,7 @@ class Assert
      */
     public static function isAnyOf($value, $classes, string $message = '')
     {
-        static::objectish($value);
+        static::objectish($value, $message);
         static::isIterable($classes);
         foreach ($classes as $class) {
             static::string($class, 'Expected class as a string. Got: %s');
