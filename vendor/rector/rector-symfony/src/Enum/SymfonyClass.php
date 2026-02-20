@@ -180,7 +180,7 @@ final class SymfonyClass
     /**
      * @var string
      */
-    public const UUID = 'Symfony\Component\Uid\Uuid';
+    public const UUID = 'Symfony\Component\Uid\AbstractUid';
     /**
      * @var string
      */
