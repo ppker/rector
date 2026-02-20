@@ -196,6 +196,9 @@ CODE_SAMPLE
             $parameterType = $param->type;
             // no type override
             if ($parameterType === null) {
+                if ($param->default instanceof Expr && $this->isDifferentDefaultValue($param->default, $extendedMethodReflection, $position)) {
+                    return \false;
+                }
                 continue;
             }
             $parametersSelector = $extendedMethodReflection->getOnlyVariant();
