@@ -17,7 +17,7 @@ final class GitlabOutputFormatter implements OutputFormatterInterface
     /**
      * @readonly
      */
-    private Filehasher $filehasher;
+    private FileHasher $filehasher;
     /**
      * @var string
      */
@@ -42,7 +42,7 @@ final class GitlabOutputFormatter implements OutputFormatterInterface
      * @var string
      */
     private const ERROR_SEVERITY_MINOR = 'minor';
-    public function __construct(Filehasher $filehasher)
+    public function __construct(FileHasher $filehasher)
     {
         $this->filehasher = $filehasher;
     }
