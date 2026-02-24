@@ -77,10 +77,10 @@ class ModelIdentifier
      */
     public function getClass(): ?string
     {
-        if ($this->class === null) {
-            return null;
+        if (self::$useMorphMap && $this->class !== null) {
+            return Relation::getMorphedModel($this->class) ?? $this->class;
         }
-        return Relation::getMorphedModel($this->class) ?? $this->class;
+        return $this->class;
     }
     /**
      * Indicate whether to use the relational morph-map when serializing Models.
