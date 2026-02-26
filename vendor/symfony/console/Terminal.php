@@ -103,7 +103,7 @@ class Terminal
         if (!\function_exists('shell_exec') && !\function_exists('RectorPrefix202602\shell_exec')) {
             return \false;
         }
-        return self::$stty = (bool) shell_exec('stty 2> ' . ('\\' === \DIRECTORY_SEPARATOR ? 'NUL' : '/dev/null'));
+        return self::$stty = (bool) @shell_exec('stty 2> ' . ('\\' === \DIRECTORY_SEPARATOR ? 'NUL' : '/dev/null'));
     }
     private static function initDimensions(): void
     {

@@ -134,7 +134,7 @@ CODE_SAMPLE
             $hasChanged = \true;
         }
         if (!isset($new->getArgs()[1])) {
-            if ($this->hasCodeParameter($new->class)) {
+            if ($this->hasParameter($new, 'code') && !$this->hasArgument($new, 'code')) {
                 // get previous code
                 $new->args[1] = new Arg(new MethodCall($caughtThrowableVariable, 'getCode'), \false, \false, [], $shouldUseNamedArguments ? new Identifier('code') : null);
                 $hasChanged = \true;
@@ -145,24 +145,30 @@ CODE_SAMPLE
         /** @var Arg $arg1 */
         $arg1 = $new->args[1];
         if ($arg1->name instanceof Identifier && $arg1->name->toString() === 'previous') {
-            if ($this->hasCodeParameter($new->class)) {
+            if ($this->hasParameter($new, 'code') && !$this->hasArgument($new, 'code')) {
                 $new->args[1] = new Arg(new MethodCall($caughtThrowableVariable, 'getCode'), \false, \false, [], $shouldUseNamedArguments ? new Identifier('code') : null);
                 $new->args[$exceptionArgumentPosition] = $arg1;
                 $hasChanged = \true;
             } elseif (!$hasChanged) {
                 return null;
             }
-        } else {
+        } elseif ($this->hasParameter($new, 'previous') && !$this->hasArgument($new, 'previous')) {
             $new->args[$exceptionArgumentPosition] = new Arg($caughtThrowableVariable, \false, \false, [], $shouldUseNamedArguments ? new Identifier('previous') : null);
+            $hasChanged = \true;
+        } elseif (!$hasChanged) {
+            return null;
         }
         // null the node, to fix broken format preserving printers, see https://github.com/rectorphp/rector/issues/5576
         $new->setAttribute(AttributeKey::ORIGINAL_NODE, null);
         // nothing more to add
         return NodeVisitor::DONT_TRAVERSE_CURRENT_AND_CHILDREN;
     }
-    private function hasCodeParameter(Name $exceptionName): bool
+    private function hasParameter(New_ $new, string $parameterName): bool
     {
-        $className = $this->getName($exceptionName);
+        $className = $this->getName($new->class);
+        if ($className === null) {
+            return \false;
+        }
         if (!$this->reflectionProvider->hasClass($className)) {
             return \false;
         }
@@ -174,7 +180,16 @@ CODE_SAMPLE
         $extendedMethodReflection = $classReflection->getConstructor();
         $extendedParametersAcceptor = ParametersAcceptorSelector::combineAcceptors($extendedMethodReflection->getVariants());
         foreach ($extendedParametersAcceptor->getParameters() as $extendedParameterReflection) {
-            if ($extendedParameterReflection->getName() === 'code') {
+            if ($extendedParameterReflection->getName() === $parameterName) {
+                return \true;
+            }
+        }
+        return \false;
+    }
+    private function hasArgument(New_ $new, string $argumentName): bool
+    {
+        foreach ($new->getArgs() as $arg) {
+            if ($arg->name instanceof Identifier && $arg->name->toString() === $argumentName) {
                 return \true;
             }
         }
