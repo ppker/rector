@@ -1303,6 +1303,7 @@ return array(
     'Rector\\CodingStyle\\Rector\\FuncCall\\CountArrayToEmptyArrayComparisonRector' => $baseDir . '/rules/CodingStyle/Rector/FuncCall/CountArrayToEmptyArrayComparisonRector.php',
     'Rector\\CodingStyle\\Rector\\FuncCall\\FunctionFirstClassCallableRector' => $baseDir . '/rules/CodingStyle/Rector/FuncCall/FunctionFirstClassCallableRector.php',
     'Rector\\CodingStyle\\Rector\\FuncCall\\StrictArraySearchRector' => $baseDir . '/rules/CodingStyle/Rector/FuncCall/StrictArraySearchRector.php',
+    'Rector\\CodingStyle\\Rector\\FuncCall\\StrictInArrayRector' => $baseDir . '/rules/CodingStyle/Rector/FuncCall/StrictInArrayRector.php',
     'Rector\\CodingStyle\\Rector\\FuncCall\\VersionCompareFuncCallToConstantRector' => $baseDir . '/rules/CodingStyle/Rector/FuncCall/VersionCompareFuncCallToConstantRector.php',
     'Rector\\CodingStyle\\Rector\\FunctionLike\\FunctionLikeToFirstClassCallableRector' => $baseDir . '/rules/CodingStyle/Rector/FunctionLike/FunctionLikeToFirstClassCallableRector.php',
     'Rector\\CodingStyle\\Rector\\If_\\NullableCompareToNullRector' => $baseDir . '/rules/CodingStyle/Rector/If_/NullableCompareToNullRector.php',
