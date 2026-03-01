@@ -3,7 +3,7 @@
 declare (strict_types=1);
 namespace Rector\PHPUnit\CodeQuality\Rector\Expression;
 
-use RectorPrefix202602\Nette\Utils\Strings;
+use RectorPrefix202603\Nette\Utils\Strings;
 use PhpParser\Node;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
@@ -25,7 +25,7 @@ use Rector\PHPUnit\NodeAnalyzer\TestsNodeAnalyzer;
 use Rector\Rector\AbstractRector;
 use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
-use RectorPrefix202602\Webmozart\Assert\Assert;
+use RectorPrefix202603\Webmozart\Assert\Assert;
 /**
  * @see \Rector\PHPUnit\Tests\CodeQuality\Rector\Expression\ConfiguredMockEntityToSetterObjectRector\ConfiguredMockEntityToSetterObjectRectorTest
  */

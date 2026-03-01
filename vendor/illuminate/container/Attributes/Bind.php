@@ -1,6 +1,6 @@
 <?php
 
-namespace RectorPrefix202602\Illuminate\Container\Attributes;
+namespace RectorPrefix202603\Illuminate\Container\Attributes;
 
 use Attribute;
 use BackedEnum;

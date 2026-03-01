@@ -1,10 +1,10 @@
 <?php
 
-namespace RectorPrefix202602\Illuminate\Container\Attributes;
+namespace RectorPrefix202603\Illuminate\Container\Attributes;
 
 use Attribute;
-use RectorPrefix202602\Illuminate\Contracts\Container\Container;
-use RectorPrefix202602\Illuminate\Contracts\Container\ContextualAttribute;
+use RectorPrefix202603\Illuminate\Contracts\Container\Container;
+use RectorPrefix202603\Illuminate\Contracts\Container\ContextualAttribute;
 #[Attribute(Attribute::TARGET_PARAMETER)]
 class RouteParameter implements ContextualAttribute
 {

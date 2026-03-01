@@ -1,7 +1,7 @@
 <?php
 
 declare (strict_types=1);
-namespace RectorPrefix202602;
+namespace RectorPrefix202603;
 
 use Rector\Config\RectorConfig;
 use Rector\DowngradePhp85\Rector\Class_\DowngradeFinalPropertyPromotionRector;
